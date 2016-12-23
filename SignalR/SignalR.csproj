@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -197,9 +198,7 @@
     <Content Include="Assets\img\gradient_5.png" />
     <Content Include="Assets\img\gradient_6.png" />
     <Content Include="Assets\img\gradient_7.png" />
-    <Content Include="Assets\img\IAEA-Blue.gif" />
     <Content Include="Assets\img\icon_sprite.png" />
-    <Content Include="Assets\img\logo-PrintReport.jpg" />
     <Content Include="Assets\img\progress_bar.gif" />
     <Content Include="Assets\img\slider_handles.png" />
     <Content Include="Assets\img\slider_h_bg.gif" />
