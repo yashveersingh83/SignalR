@@ -1,0 +1,123 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+
+// Reset the box-sizing
+// -------------------------
+
+*,
+*:before,
+*:after {
+  .box-sizing(border-box);
+}
+
+// Body reset
+// -------------------------
+
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  overflow-y: scroll; 
+}
+
+body {
+  font-family: @font-family;
+  font-size: @font-size;
+  line-height: @line-height;
+  color: @text-color;
+  background-color: @body-bg;
+}
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+// Reset unusual Firefox-on-Android default style, see https://github.com/necolas/normalize.css/issues/214
+button,
+input,
+select[multiple],
+textarea {
+  background-image: none;
+}
+
+// Links
+// -------------------------
+
+a {
+  color: @link-color;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  color: @link-color-hover;
+  text-decoration: underline;
+}
+a:focus {
+  .tab-focus();
+}
+
+
+// Images
+// -------------------------
+
+img {
+  vertical-align: middle;
+  display: inline-block; //block
+  max-width: 100%;
+  height: auto;
+}
+
+// Rounded corners
+.img-rounded {
+  border-radius: @border-radius;
+}
+
+// Perfect circle
+.img-circle {
+  border-radius: 500px; // crank the border-radius so it works with most reasonably sized images
+}
+
+// Fix Google Maps canvas
+//	Wrap your Google Maps embed in a `.img-reset` to reset the global `box-sizing` changes.
+// -------------------------
+.img-reset,
+.img-reset * { 
+	.box-sizing(content-box); 
+	
+	img {
+		max-width: none;
+	}
+}
+
+
+// Horizontal rules
+// -------------------------
+
+hr {
+  margin-top:    @line-height-computed;
+  margin-bottom: @line-height-computed;
+  border: 0;
+  border-top: 1px solid @border-color;
+}
+
+// Only display content to screen readers
+// See: http://a11yproject.com/posts/how-to-hide-content/
+// -------------------------
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}

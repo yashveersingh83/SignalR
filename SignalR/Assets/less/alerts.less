@@ -1,0 +1,69 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: 14px 15px;
+  margin-bottom: @line-height-computed;
+  //background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: @alert-border-radius;
+
+  // Headings for larger alerts
+  h3, h4 {
+    margin-top: 0;
+    padding-top: 0;
+    color: inherit;
+  }
+  // Make links more visible
+ 	a:not(.btn) {
+    text-decoration: underline;
+    color: inherit;
+    
+    &:hover {
+	    text-decoration: none;
+    }
+  }
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+  > p + p {
+    margin-top: 10px;
+  }
+  // Close button patches
+  .close {
+  	position: relative;
+  	top: -1px;
+  	right: -5px;
+    color: inherit;
+		.opacity(.65);
+		
+		&:hover,
+	  &:focus {
+	    .opacity(.85);
+	  }
+  }
+}
+.alert + .alert {
+	margin-top: (@line-height-computed / -2);
+}
+
+// Styling
+.alert-warning {
+  .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-text);
+}
+.alert-success {
+  .alert-variant(@alert-success-bg; @alert-success-border; @alert-success-text);
+}
+.alert-danger {
+  .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
+}
+.alert-info {
+  .alert-variant(@alert-info-bg; @alert-info-border; @alert-info-text);
+}

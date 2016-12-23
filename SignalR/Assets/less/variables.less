@@ -1,0 +1,641 @@
+//
+// Variables
+// --------------------------------------------------
+
+
+// Global values
+// --------------------------------------------------
+
+// Grays
+// -------------------------
+
+@gray-darker:						#33363b;
+@gray-dark:							#414852;
+@gray-dark-soft:				#5f6673;
+@gray-medium:						#949ba7;
+@gray-medium-soft:			#a5abb5;
+@gray-light:						#d5d7dc;
+@gray-light-soft:				#e1e3e6;
+@gray-lighter:					#e9ecf0;
+@gray-lighter-soft:			#f4f5f8; 
+
+// Colors
+// -------------------------
+
+@blue:									#3366cc;
+@blue-soft:							#4a7ce0;
+@lavander:							#8469ca;
+@lavander-soft:					#a086e0;
+@pinkrose:							#c7609d;
+@pinkrose-soft:					#e17cb5;
+@grapefruit:						#c93342;
+@grapefruit-soft:				#e34b5b;
+@bittersweet:						#ed452e;
+@bittersweet-soft:			#ff614a; 
+@sunflower:							#f39c12;
+@sunflower-soft:				#f5b64a;
+@grass:									#7eb344;
+@grass-soft:						#97cb5f;
+@mint:									#2bb08e;
+@mint-soft:							#40c7a5;
+@aqua:									#2da1cc;
+@aqua-soft:							#45b7df;
+@bluejeans:							#3c7bcd;
+@bluejeans-soft:				#5492e2;
+
+// Scaffolding
+// -------------------------
+
+@body-bg:               @gray-lighter;
+@text-color:            @gray-dark;
+
+// Links
+// -------------------------
+
+@link-color:            @blue;
+@link-color-hover:      darken(@link-color, 10%);
+
+// Typography
+// -------------------------
+
+@font-family-sans-serif:"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:     Georgia, "Times New Roman", Times, serif;
+@font-family-monospace: Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family:        		@font-family-sans-serif;
+
+@font-size:          		14px;
+@font-size-large:       ceil(@font-size * 1.25); // ~18px
+@font-size-small:       ceil(@font-size * 0.85); // ~12px
+
+@line-height:        		1.428571429; // 20/14
+@line-height-computed:  24px; 
+@line-height-small: 		1.125;
+
+@headings-font-family:  @font-family;
+@headings-line-height:  1.1;
+
+
+// Components
+// -------------------------
+// Based on 14px font-size and 1.428 line-height (~20px to start)
+
+@padding-v:          			6px;
+@padding-h:        				12px;
+
+@padding-v-large:         10px;
+@padding-h-large:       	16px;
+
+@padding-v-small:         4px;
+@padding-h-small:       	8px;
+
+@line-height-large:       1.33;
+@line-height-small:       1.5;
+
+@border-radius:           5px;
+@border-radius-large:     8px;
+@border-radius-small:     3px;
+		
+@border-color:						@gray-light;
+@border-color-light:			@gray-light-soft;	
+
+@bg: 											@gray-lighter;
+@bg-light: 								@gray-lighter-soft;
+@bg-active:     					@blue;
+
+@caret-width-base:        4px;
+@caret-width-large:       5px;
+
+// Horizontal forms & lists
+@horizontal-offset: 			240px;
+
+
+// Tables
+// -------------------------
+
+@table-padding:           8px;
+@table-padding-condensed: 5px;
+@table-border:      			@border-color; // table and cell border
+@table-border-light: 			@border-color-light;
+@table-bg:         				@bg-light; 
+@table-bg-dark:     	 		@bg; 
+@table-bg-active:         @bg;
+
+// Buttons
+// -------------------------
+
+@btn-font-weight:                600;
+
+@btn-color:              				 @text-color;
+@btn-bg:                 				 lighten(@gray-light-soft, 1%); 
+@btn-border:                 		 @border-color; 
+@btn-bg-active:          				 @gray-light; 
+@btn-border-active:          		 darken(@border-color, 6%);
+
+@btn-primary-color:              #fff;
+@btn-primary-bg:                 @bittersweet-soft;
+@btn-primary-border:             lighten(@bittersweet, 3%);
+@btn-primary-bg-active:          @bittersweet;
+@btn-primary-border-active:      darken(@bittersweet, 6%);
+
+@btn-success-color:              #fff;
+@btn-success-bg:                 @mint-soft;
+@btn-success-border:             lighten(@mint, 3%);
+@btn-success-bg-active:          @mint;
+@btn-success-border-active:      darken(@mint, 6%);
+
+@btn-warning-color:              #fff;
+@btn-warning-bg:                 @sunflower-soft;
+@btn-warning-border:             lighten(@sunflower, 3%);
+@btn-warning-bg-active:          @sunflower;
+@btn-warning-border-active:      darken(@sunflower, 6%);
+
+@btn-danger-color:               #fff;
+@btn-danger-bg:                  @grapefruit-soft;
+@btn-danger-border:              lighten(@grapefruit, 3%);
+@btn-danger-bg-active:           @grapefruit;
+@btn-danger-border-active:       darken(@grapefruit, 6%);
+
+@btn-info-color:                 #fff;
+@btn-info-bg:                    @bluejeans-soft;
+@btn-info-border:                lighten(@bluejeans, 3%);
+@btn-info-bg-active:             @bluejeans;
+@btn-info-border-active:         darken(@bluejeans, 6%);
+
+@btn-link-disabled-color:        @gray-medium-soft;
+
+// Forms
+// -------------------------
+
+@input-bg:                       #fff;
+@input-bg-disabled:              @gray-lighter;
+
+@input-border:                   @border-color;
+@input-border-radius:            @border-radius;
+@input-border-focus:             #66afe9;
+
+@input-color-placeholder:        @gray-medium;
+
+@input-height:              		 (20px + (@padding-v * 2) + 2);
+@input-height-large:             (floor(@font-size-large * @line-height-large) + (@padding-v-large * 2) + 2);
+@input-height-small:             (floor(@font-size-small * @line-height-small) + (@padding-v-small * 2) + 2);
+
+@legend-border-color:            @border-color;
+
+@input-group-addon-bg: 					 @bg-light;
+@input-group-addon-border-color: @input-border;
+
+// Dropdowns
+// -------------------------
+
+@dropdown-bg:                    #fff;
+@dropdown-border:                rgba(0,0,0,.15);
+@dropdown-fallback-border:       #ccc;
+@dropdown-divider-bg:            @border-color-light;
+
+@dropdown-link-active-color:     #fff;
+@dropdown-link-active-bg:        @component-active-bg;
+
+@dropdown-link-color:            @gray-dark;
+@dropdown-link-hover-color:      #fff;
+@dropdown-link-hover-bg:         @dropdown-link-active-bg;
+
+@dropdown-link-disabled-color:   @gray-medium-soft;
+@dropdown-header-color:          @gray-medium;
+@dropdown-caret-color:           #000;
+
+
+// Transitions
+// -------------------------
+
+@transition-duration: 		.25s;
+//@transition-type:         ease;
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+@component-active-bg: 					@blue;
+@component-offset-h: 						220px;
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+
+@zindex-dropdown:          1000;
+@zindex-popover:           1010;
+@zindex-tooltip:           1030;
+@zindex-navbar-fixed:      1030;
+@zindex-modal-background:  1040;
+@zindex-modal:             1050;
+@zindex-datepicker:          1060;
+
+
+// Media queries breakpoints
+// --------------------------------------------------
+
+// Extra small screen / phone
+@screen-xs:                  480px;
+@screen-phone:               @screen-xs;
+
+// Small screen / tablet
+@screen-sm:                  768px;
+@screen-tablet:              @screen-sm;
+
+// Medium screen / desktop
+@screen-md:                  992px;
+@screen-desktop:             @screen-md;
+
+// Large screen / wide desktop
+@screen-lg:                  1400px;
+@screen-lg-desktop:          @screen-lg;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm - 1);
+@screen-sm-max:              (@screen-md - 1);
+@screen-md-max:              (@screen-lg - 1);
+
+
+// Grid system
+// --------------------------------------------------
+
+// Number of columns in the grid system
+@grid-columns:              12;
+// Padding, to be divided by two and applied to the left and right of all columns
+@grid-gutter-width:         24px;
+// Point at which the navbar stops collapsing
+@grid-float-breakpoint:     @screen-md;
+
+
+// Container sizes
+// --------------------------------------------------
+
+// Small screen / tablet
+@container-tablet:          728px;
+
+// Medium screen / desktop
+@container-desktop:         940px;
+
+// Large screen / wide desktop
+@container-lg-desktop:   1380px; 
+
+
+// Navbar
+// -------------------------
+
+// Basics of a navbar
+@navbar-height:                    50px;
+@navbar-margin-bottom:             @line-height-computed;
+@navbar-color:                     @text-color;
+@navbar-bg:                        @bg-light;
+@navbar-border:                    @border-color-light;
+@navbar-border-radius:             @border-radius;
+@navbar-padding-horizontal:        floor(@grid-gutter-width / 2);
+@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
+
+// Navbar links
+@navbar-link-color:                @gray-dark-soft;
+@navbar-link-hover-color:          @text-color;
+@navbar-link-hover-bg:             @navbar-link-active-bg;
+@navbar-link-active-color:         @text-color;
+@navbar-link-active-bg:            darken(@bg, 2%);
+@navbar-link-disabled-color:       @gray-medium-soft;
+@navbar-link-disabled-bg:          transparent;
+
+// Navbar brand label
+@navbar-brand-color:               @text-color;
+@navbar-brand-hover-color:         @text-color;
+@navbar-brand-hover-bg:            transparent;
+
+// Navbar toggle
+@navbar-toggle-hover-bg:           @bg;
+@navbar-toggle-icon-bar-bg:        @text-color;
+@navbar-toggle-border-color:       @border-color;
+
+
+// Inverted navbar
+//
+// Reset inverted navbar basics
+@navbar-inverse-color:                      #fff;
+@navbar-inverse-bg:                         @blue-soft;
+@navbar-inverse-border:                     @blue;
+
+// Inverted navbar links
+@navbar-inverse-link-color:                 #dbe5f9;
+@navbar-inverse-link-hover-color:           #fff;
+@navbar-inverse-link-hover-bg:              @navbar-inverse-link-active-bg;
+@navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
+@navbar-inverse-link-active-bg:             #3e71d6;
+@navbar-inverse-link-disabled-color:        #a5bef0;
+@navbar-inverse-link-disabled-bg:           transparent;
+
+// Inverted navbar brand label
+@navbar-inverse-brand-color:                #fff;
+@navbar-inverse-brand-hover-color:          #fff;
+@navbar-inverse-brand-hover-bg:             transparent;
+
+// Inverted form controls and button
+// Normal navbar needs no special styles or vars
+@navbar-inverse-input-bg:                  lighten(@navbar-inverse-bg, 25%);
+@navbar-inverse-input-bg-focus:            #fff;
+@navbar-inverse-input-border:              @blue;
+@navbar-inverse-input-placeholder-color:   @input-color-placeholder;
+
+@navbar-inverse-btn-color:              	#fff;
+@navbar-inverse-btn-bg:                 	@blue-soft;
+@navbar-inverse-btn-border:             	@blue;
+@navbar-inverse-btn-bg-active:          	@blue;
+@navbar-inverse-btn-border-active:      	@blue;
+
+// Inverted navbar toggle
+@navbar-inverse-toggle-hover-bg:            @blue;
+@navbar-inverse-toggle-icon-bar-bg:         #fff;
+@navbar-inverse-toggle-border-color:        @blue;
+
+
+// Navs
+// -------------------------
+
+@nav-link-padding:                          10px 15px;
+@nav-link-hover-bg:                         @bg;
+
+@nav-disabled-link-color:                   @gray-medium-soft;
+@nav-disabled-link-hover-color:             @gray-medium-soft;
+
+@nav-open-link-hover-color:                 #fff;
+@nav-open-caret-border-color:               #fff;
+
+// Tabs
+@nav-tabs-border-color:                     @border-color;
+@nav-tabs-link-hover-border-color:          @border-color-light;
+
+@nav-tabs-active-link-hover-bg:             @body-bg;
+@nav-tabs-active-link-hover-color:          @text-color;
+@nav-tabs-active-link-hover-border-color:   @border-color;
+
+@nav-tabs-justified-link-border-color:      @border-color;
+@nav-tabs-justified-active-link-border-color: @bg;
+
+// Pills
+@nav-pills-active-link-hover-bg:            @component-active-bg;
+@nav-pills-active-link-hover-color:         #fff;
+
+
+// Pagination
+// -------------------------
+
+@pagination-bg:                        transparent; //#fff;
+@pagination-border:                    @border-color;
+
+@pagination-hover-bg:                  darken(@bg, 2%);
+
+@pagination-active-bg:                 @component-active-bg;
+@pagination-active-color:              #fff;
+
+@pagination-disabled-color:            @gray-medium-soft;
+
+
+// Pager
+// -------------------------
+
+@pager-border-radius:                  15px;
+@pager-disabled-color:                 @gray-medium-soft;
+
+
+// Jumbotron
+// -------------------------
+
+@jumbotron-bg:                   @bg-light;
+@jumbotron-heading-color:        inherit;
+@jumbotron-lead-color:           inherit;
+
+
+// Hero
+// -------------------------
+
+@hero-bg:                   			@blue-soft;
+@hero-heading-color:        			inherit;
+@hero-lead-color:           			inherit;
+
+
+// Form states and alerts
+// -------------------------
+
+@state-warning-text:             darken(@sunflower, 7%);
+@state-warning-bg:               @sunflower-soft;
+@state-warning-border:           @state-warning-bg;
+
+@state-danger-text:              lighten(@grapefruit, 1%);
+@state-danger-bg:                @grapefruit-soft;
+@state-danger-border:            @state-danger-bg;
+
+@state-success-text:             darken(@mint, 5%);
+@state-success-bg:               @mint-soft;
+@state-success-border:           @state-success-bg;
+
+@state-info-text:                darken(@bluejeans, 2%);
+@state-info-bg:                  @bluejeans-soft;
+@state-info-border:              @state-info-bg;
+
+// Alerts
+// -------------------------
+@alert-border-radius:         @border-radius;
+@alert-link-font-weight:      600;
+
+@alert-warning-bg:            lighten(@state-warning-bg, 32%);
+@alert-warning-text:          @state-warning-text;
+@alert-warning-border:        @state-warning-border;
+
+@alert-success-bg:            lighten(@state-success-bg, 42%);
+@alert-success-text:          @state-success-text;
+@alert-success-border:        @state-success-border;
+
+@alert-danger-bg:             lighten(@state-danger-bg, 36%);
+@alert-danger-text:           @state-danger-text;
+@alert-danger-border:         @state-danger-border;
+
+@alert-info-bg:               lighten(@state-info-bg, 34%);
+@alert-info-text:             @state-info-text;
+@alert-info-border:           @state-info-border;
+
+// Labels
+// -------------------------
+
+@label-default-bg:            @gray-medium;
+@label-primary-bg:            @bittersweet-soft;
+@label-success-bg:            @state-success-bg;
+@label-info-bg:               @state-info-bg;
+@label-warning-bg:            @state-warning-bg;
+@label-danger-bg:             @state-danger-bg;
+
+@label-color:                 #fff;
+@label-link-hover-color:      #fff;
+
+
+// Panels
+// -------------------------
+@panel-bg:                    #fff;
+@panel-border:                @border-color;
+@panel-border-radius:         @border-radius;
+@panel-heading-bg:            @bg-light;
+@panel-subheading-bg:         @border-color-light;
+@panel-footer-bg:             @bg-light;
+
+@panel-primary-text:          #fff;
+@panel-primary-border:        @btn-primary-border;
+@panel-primary-heading-bg:    @btn-primary-bg;
+
+@panel-success-text:          #fff;
+@panel-success-border:        @btn-success-border;
+@panel-success-heading-bg:    @btn-success-bg;
+
+@panel-warning-text:          #fff;
+@panel-warning-border:        @btn-warning-border;
+@panel-warning-heading-bg:    @btn-warning-bg;
+
+@panel-danger-text:           #fff;
+@panel-danger-border:         @btn-danger-border;
+@panel-danger-heading-bg:     @btn-danger-bg;
+
+@panel-info-text:             #fff;
+@panel-info-border:           @btn-info-border;
+@panel-info-heading-bg:       @btn-info-bg;
+
+
+// Progress bars
+// -------------------------
+@progress-bg:                 @bg-light;
+@progress-bar-color:          #fff;
+
+@progress-bar-bg:             @bittersweet-soft;
+@progress-bar-success-bg:     @state-success-bg;
+@progress-bar-warning-bg:     @state-warning-bg;
+@progress-bar-danger-bg:      @state-danger-bg;
+@progress-bar-info-bg:        @state-info-bg;
+
+
+// Tooltips
+// -------------------------
+@tooltip-max-width:           400px;
+@tooltip-color:               #fff;
+@tooltip-bg:                  darken(@gray-darker, 5%);
+
+@tooltip-arrow-width:         5px;
+@tooltip-arrow-color:         @tooltip-bg;
+
+
+// Popovers
+// -------------------------
+@popover-bg:                          #fff;
+@popover-max-width:                   276px;
+@popover-border-color:                rgba(0,0,0,.2);
+@popover-fallback-border-color:       #ccc;
+
+@popover-title-bg:                    @bg-light;
+
+@popover-arrow-width:                 10px;
+@popover-arrow-color:                 #fff;
+
+@popover-arrow-outer-width:           (@popover-arrow-width + 1);
+@popover-arrow-outer-color:           rgba(0,0,0,.25);
+@popover-arrow-outer-fallback-color:  #999;
+
+
+// Modals
+// -------------------------
+@modal-inner-padding:         20px;
+
+@modal-title-padding:         15px;
+@modal-title-line-height:     @line-height;
+
+@modal-content-bg:            #fff;
+@modal-content-border-color:  rgba(0,0,0,.2);
+@modal-content-fallback-border-color: #999;
+
+@modal-backdrop-bg:           #000;
+@modal-header-border-color:   @border-color;
+@modal-footer-border-color:   @modal-header-border-color;
+
+
+// List groups
+// -------------------------
+@list-group-bg:               #fff;
+@list-group-border:           @border-color;
+@list-group-border-radius:    @border-radius;
+
+@list-group-hover-bg:         @bg;
+@list-group-active-color:     #fff;
+@list-group-active-bg:        @component-active-bg;
+@list-group-active-border:    @list-group-active-bg;
+
+@list-group-link-color:        @gray-dark-soft;
+@list-group-link-heading-color:@gray-dark;
+
+// Thumbnails
+// -------------------------
+@thumbnail-padding:           5px;
+@thumbnail-bg:                #fff;
+@thumbnail-border:            @border-color-light;
+@thumbnail-border-radius:     @border-radius;
+
+@thumbnail-caption-color:     @text-color;
+@thumbnail-caption-padding:   9px;
+
+// Wells
+// -------------------------
+@well-bg:                     @bg-light;
+
+
+// Badges
+// -------------------------
+@badge-color:                 #fff;
+@badge-link-hover-color:      #fff;
+@badge-bg:                    @gray-medium;
+
+@badge-active-color:          @link-color;
+@badge-active-bg:             #fff;
+
+@badge-font-weight:           600;
+@badge-line-height:           1;
+@badge-border-radius:         10px;
+
+
+// Breadcrumbs
+// -------------------------
+@breadcrumb-bg:               @bg-light;
+@breadcrumb-color:            @gray-medium-soft;
+@breadcrumb-active-color:     @gray-medium;
+
+
+// Carousel
+// ------------------------
+
+@carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6);
+
+@carousel-control-color:                      #fff;
+@carousel-control-width:                      10%;
+@carousel-control-opacity:                    .5;
+@carousel-control-font-size:                  20px;
+
+@carousel-indicator-active-bg:                #fff;
+@carousel-indicator-border-color:             #fff;
+
+@carousel-caption-color:                      #fff;
+
+
+// Close
+// ------------------------
+@close-color:                 #000;
+@close-font-weight:           600;
+@close-text-shadow:           0 1px 0 #fff;
+
+
+// Code
+// ------------------------
+@code-color:                  #d14;
+@code-bg:                     #f2dee6;
+
+@pre-bg:                      @bg-light;
+@pre-border-color:            @border-color;
+
+

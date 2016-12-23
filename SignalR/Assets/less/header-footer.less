@@ -1,0 +1,194 @@
+//
+// Main Page Header, Navbar, and Footer
+// --------------------------------------------------
+
+.page { }
+
+// Header
+// --------------------------------------------------
+.header {
+	margin-bottom: 30px;
+	background-color: @blue;
+	
+	> .container:first-child {
+		min-height: @navbar-height;
+		color: @navbar-inverse-link-color;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 50px;
+	}
+	.product-name {
+  	float: left;
+  	-webkit-font-smoothing: antialiased;
+		font-smoothing: antialiased;
+  	a {
+	  	display:block;
+	  	padding-left: 86px;
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 50px;
+			color: #fff;
+			letter-spacing: .025em;
+			text-shadow: 0 1px 1px rgba(0,0,0,.1);
+			.img-retina('../img/sprite-main.png', '../img/sprite-main-2x.png', 100px, 100px);
+			background-repeat: no-repeat;
+			background-position: 0 8px;
+			
+			&:hover, 
+			&:focus {
+				text-decoration: none;
+				color: #fff;
+			}
+  	}
+	}
+	.header-toolbar {
+		float: right;
+
+		ul {
+			.list-reset();
+			
+			li {
+				float: left;
+				line-height: 50px;
+			}
+			.icon-user {
+				margin-right: 4px;
+				font-size: 18px;
+				vertical-align: -15%;
+			}
+		}
+	}
+}
+
+// Fix the top/bottom navbars when screen real estate supports it
+.header-fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: @zindex-navbar-fixed;
+}
+
+// Header navbar
+// --------------------------------------------------
+
+.header-navbar {
+	margin-bottom: 0;
+	border-radius: 0;
+	border: 0;
+	
+	.navbar-header {
+		padding-right: 0;
+		padding-left: 0;
+	}
+	.badge {
+		background-color: @bittersweet-soft;
+		color: #fff;
+		margin-left: 3px;
+	}
+	li.active .badge {
+		background-color: #fff;
+		color: @navbar-inverse-bg;
+	}
+	.form-navbar {
+		.form-control {
+			width: 180px;
+		}
+	}
+	.navbar-brand {
+		margin-right: (@navbar-padding-horizontal * 2);
+	  padding-left: 86px;
+	  font-size: @font-size;
+	  font-weight: 600;
+	  letter-spacing: .025em;
+		text-shadow: 0 1px 1px rgba(0,0,0,.1);
+	  .img-retina('../img/sprite-main.png', '../img/sprite-main-2x.png', 100px, 100px);
+		background-repeat: no-repeat;
+		background-position: 0 8px;
+	}
+	// Get rid of horizontal offsets
+	.navbar-collapse {
+		.navbar-nav:not(.navbar-right):first-child {
+			margin-left: -@navbar-padding-horizontal;
+		}
+		.navbar-right:last-child {
+			margin-right: -@navbar-padding-horizontal;
+		}
+	}
+}
+.header > .header-navbar:first-child {
+	background-color: @blue;
+	.navbar-toggle {
+    border-color: darken(@navbar-inverse-toggle-border-color, 9%);
+    &:hover,
+    &:focus {
+      background-color: darken(@navbar-inverse-toggle-hover-bg, 9%);
+    }
+    .icon-bar {
+      background-color: darken(@navbar-inverse-toggle-icon-bar-bg, 9%);
+    }
+  }
+}
+
+
+// Main
+// --------------------------------------------------
+
+.main {
+	min-height: 300px;
+}
+
+// Footer
+// --------------------------------------------------
+.footer {
+	margin-top: 30px;
+	padding-top: 10px;
+	border-top: 1px solid @border-color;
+	font-size: 13px;
+	color: @gray-medium;
+	a {
+		color: darken(@gray-medium, 10%);
+		
+		&:hover {
+			color: @gray-dark-soft;
+		}
+	}
+	.footer-copyright {
+		margin: 0;
+	}
+	.footer-links {
+		text-align: right;
+		a {
+			display: inline-block;
+			padding-left: 15px;
+			
+			&:first-child {
+				padding-left: 0;
+			}
+		}
+	}
+}
+
+
+@media (min-width: @screen-tablet) {
+	.product-name-short {
+		.responsive-invisibility();
+	}    
+}
+@media (max-width: @screen-xs-max) {
+	.product-name-long {
+		.responsive-invisibility();
+	}
+	.header .product-name a, 
+	.header .navbar-brand {
+		background: none;
+		padding-left: 0;
+	} 
+	.footer {
+		.footer-copyright,
+		.footer-links {
+			text-align: center;
+		}
+	}
+}

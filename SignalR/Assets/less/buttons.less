@@ -1,0 +1,255 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core styles
+.btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  font-size: @font-size;
+  font-weight: @btn-font-weight;
+  text-align: center;
+  line-height: @line-height;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: @padding-v @padding-h;
+  border-radius: @border-radius;
+  white-space: nowrap;
+  .user-select(none);
+
+  &:focus {
+    .tab-focus();
+  }
+
+  &:hover,
+  &:focus {
+    color: @btn-color;
+    text-decoration: none;
+    .transition(background-color @transition-duration, border-color @transition-duration, color @transition-duration;);
+  }
+  
+  &:active,
+  &.active {
+    outline: 0;
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.15));
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: default;
+    pointer-events: none; // Future-proof disabling of clicks
+    .opacity(.65);
+    .box-shadow(none);
+  }
+
+}
+
+.btn-primary,  
+.btn-danger, 
+.btn-info {
+	&:active,
+  &.active {
+    outline: 0;
+    .box-shadow(inset 0 3px 5px rgba(0,0,0,.23));
+  }
+}
+
+
+// Button styling
+// --------------------------------------------------
+.btn {
+  .btn-pseudo-states(@btn-color; @btn-bg; @btn-border; @btn-bg-active; @btn-border-active);
+}
+.btn-primary {
+  .btn-pseudo-states(@btn-primary-color; @btn-primary-bg; @btn-primary-border; @btn-primary-bg-active; @btn-primary-border-active);
+}
+.btn-warning {
+  .btn-pseudo-states(@btn-warning-color; @btn-warning-bg; @btn-warning-border; @btn-warning-bg-active; @btn-warning-border-active);
+}
+.btn-danger {
+  .btn-pseudo-states(@btn-danger-color; @btn-danger-bg; @btn-danger-border; @btn-danger-bg-active; @btn-danger-border-active);
+}
+.btn-success {
+  .btn-pseudo-states(@btn-success-color; @btn-success-bg; @btn-success-border; @btn-success-bg-active; @btn-success-border-active);
+}
+.btn-info {
+  .btn-pseudo-states(@btn-info-color; @btn-info-bg; @btn-info-border; @btn-info-bg-active; @btn-info-border-active);
+}
+
+
+// Hover buttons
+// -------------------------
+.btn-hover {
+	color: @btn-color;
+  background-color: transparent;
+	border-color: transparent;
+	&.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+  	&,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: transparent;
+			border-color: transparent;
+			color: @btn-color !important;
+			.opacity(.5);
+    }
+  }
+  &.btn-primary {
+  	.text-primary;
+	}
+	&.btn-warning {
+	  .text-warning;
+	}
+	&.btn-danger {
+	 	.text-danger;
+	}
+	&.btn-success {
+	  .text-success;
+	}
+	&.btn-info {
+	 .text-info;
+	}
+	&:hover,
+  &:focus {
+	  color: #fff;
+  }
+  .btn& {
+	  &:hover,
+		&:focus {
+	  color: @btn-color;
+		}
+  }
+  .btn-primary&, 
+  .btn-warning&, 
+  .btn-danger&, 
+  .btn-success&, 
+  .btn-info& {
+	  &:hover,
+		&:focus {
+	  color: #fff;
+		}
+  }
+}
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.btn-link {
+  color: @link-color;
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    .box-shadow(none);
+  }
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: @link-color-hover;
+    //text-decoration: underline;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: @btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-lg {
+  padding: (@padding-v-large - 1) @padding-h-large (@padding-v-large + 1);
+  font-size: @font-size-large;
+  line-height: @line-height-large; // ensure even-numbered height of button next to large input
+  border-radius: @border-radius-large;
+}
+.btn-sm,
+.btn-xs {
+  padding: @padding-v-small @padding-h-small;
+  font-size: @font-size-small;
+  line-height: @line-height-small; // ensure proper height of button next to small input
+  border-radius: @border-radius-small;
+}
+.btn-xs {
+  padding: 2px 5px;
+}
+
+// Stretched buttons
+// --------------------------------------------------
+.btn-stretched {
+	padding-left: (@padding-h * 2);
+	padding-right: (@padding-h * 2);
+	
+	.btn-lg&  {
+		padding-left: (@padding-h-large * 2);
+		padding-right: (@padding-h-large * 2);
+	}
+	.btn-sm& {
+		padding-left: (@padding-h-small * 2);
+		padding-right: (@padding-h-small * 2);
+	}
+	.btn-xs& {
+		padding-left: (5px * 2);
+		padding-right: (5px * 2);
+	}
+}
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// Button bar
+// --------------------------------------------------
+
+.btn-bar {
+  margin-top: @line-height-computed;
+  border-top: 1px solid @border-color;
+  padding: @padding-v-large 0;
+  text-align: right;
+}

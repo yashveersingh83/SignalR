@@ -1,0 +1,108 @@
+//
+// Toolbar
+// --------------------------------------------------
+
+.toolbar {
+	.clearfix();
+	margin-bottom: (@line-height-computed / 2);
+	
+	> ul {
+		.list-reset();
+		
+		> li {
+			float: left;
+			margin-right: 15px;
+			
+			&:last-child {
+				margin-right: 0;
+			}
+			label {
+				font-weight: normal;
+				margin-top: (@padding-v + 1);
+				margin-bottom: 0;
+				display: inline-block;
+				vertical-align: top;
+			}
+			.form-group {
+				padding: 0;
+				display: inline-block;
+				vertical-align: top;
+			}
+			.btn-group {
+				vertical-align: top;
+			}
+			.pagination, 
+			.pager {
+				margin: 0;
+				> li > a {
+			    color: @gray-dark-soft;
+		    }
+			}
+			.pagination {
+				float: left; // get rid of extra bottom spacing due to inline-block
+				> li {
+			    > a,
+			    > span {
+			      padding-top: (@padding-v - 2);
+			      padding-bottom: (@padding-v - 2);
+			      //background-color: @btn-bg;
+			    }
+			  }
+			  > .active > a,
+			  > .active > span {
+			    &,
+			    &:hover,
+			    &:focus {
+			      background-color: @btn-bg-active;
+			    }
+			  }
+			  > .disabled {
+		    > span,
+		    > span:hover, 
+		    > a,
+		    > a:hover,
+		    > a:focus {
+		      color: @pagination-disabled-color;
+		    }
+		  }
+			}
+		}
+	}
+}
+
+@media (min-width: @screen-md) {
+	.toolbar {
+		> ul {
+			float: left;
+		}
+		> ul.pull-right {
+			float: right;
+		}
+		> ul + ul {
+			margin-left: 15px;
+		}
+	}
+}
+
+@media (max-width: @screen-sm-max) {
+	.toolbar {
+		> ul {
+			.clearfix();
+			float: none;
+			
+			> li {
+				margin-bottom: 10px;
+			}
+			&.pull-right {
+				> li > .btn-group > .dropdown-menu.pull-right {
+					right: auto;
+					left: 0;
+				}
+			}
+		}
+		> ul + ul {
+			border-top: 1px solid @border-color;
+			padding-top: 10px;
+		}
+	}
+}

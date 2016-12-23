@@ -1,0 +1,33 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+.jumbotron {
+  padding: 30px;
+  margin-bottom: @line-height-computed;
+  font-size: (@font-size * 1.5);
+  font-weight: 300;
+  line-height: (@line-height * 1.5);
+  color: @jumbotron-lead-color;
+  background-color: @jumbotron-bg;
+  text-shadow: 0 1px 0 #fff;
+  .btn {
+	  text-shadow: none;
+  }
+  h1 {
+    color: @jumbotron-heading-color;
+    margin-top: 0;
+  }
+  p {
+    line-height: 1.4;
+    margin-bottom: @line-height-computed;
+  }
+
+  @media screen and (min-width: @screen-tablet) {
+    padding: 40px 60px;
+    border-radius: @border-radius-large; // Only round corners at higher resolutions
+    h1 {
+      font-size: (@font-size * 4.5);
+    }
+  }
+}

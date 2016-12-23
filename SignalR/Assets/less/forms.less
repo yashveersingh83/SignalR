@@ -1,0 +1,370 @@
+//
+// Forms
+// --------------------------------------------------
+
+
+// Normalize non-controls
+//
+// Restyle and baseline non-control form elements.
+
+fieldset {
+  padding: 0;
+  margin: 0 0 @line-height-computed;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  line-height: inherit;
+  color: @gray-dark-soft;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0 0 @table-padding 0;
+  margin: 0 0 (@line-height-computed / 2);
+  border: 0;
+	border-bottom: 1px solid @border-color;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+// Normalize form controls
+
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] {
+  .box-sizing(border-box);
+}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+	vertical-align: baseline;
+  margin: 4px 3px 0 0;
+  margin-top: 1px \9; // IE8-9 
+  line-height: normal;
+}
+/*input[type="radio"],
+input[type="checkbox"] {
+	vertical-align: 1px;
+  margin: 4px 3px 0 0;
+  margin-top: 1px \9; // IE8-9 
+  line-height: normal;
+}*/
+
+// Set the height of select and file controls to match text inputs
+input[type="file"] {
+  display: block;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+// Fix optgroup Firefox bug per https://github.com/twbs/bootstrap/issues/7611
+select optgroup {
+  font-size: inherit;
+  font-style: inherit;
+  font-family: inherit;
+}
+
+// Focus for select, file, radio, and checkbox
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  .tab-focus();
+}
+
+// Fix for Chrome number input
+// Setting certain font-sizes causes the `I` bar to appear on hover of the bottom increment button.
+// See https://github.com/twbs/bootstrap/issues/8350 for more.
+input[type="number"] {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    height: auto;
+  }
+}
+
+// Placeholder
+//
+// Placeholder text gets special styles because when browsers invalidate entire
+// lines if it doesn't understand a selector/
+.form-control {
+  //&:-moz-placeholder            { color: @@input-color-placeholder; } // Firefox 4-18
+  //&::-moz-placeholder           { color: @@input-color-placeholder; } // Firefox 19+
+  &:-ms-input-placeholder       { color: @input-color-placeholder; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @input-color-placeholder; } // Safari and Chrome
+}
+.placeholder { 
+	color: @input-color-placeholder; // IE<10 JS placeholder
+}
+
+// Required fields
+label i,
+label em,
+.required {
+	color: #9c005d;
+	font-style: normal;
+}
+p.required {
+	font-size: @font-size-small;
+}
+
+
+// Help text
+.help-block {
+  display: block; // account for any element using help-block
+	font-size: @font-size-small;
+  color: @gray-medium; // lighten the text some for contrast
+  font-weight: 400;
+  margin: 5px 0;
+  line-height: @line-height-small;
+}
+label > .help-block {
+	margin: 0;
+}
+
+// Alerts
+.form-group {
+  [class^="text-"] {
+	  font-size: @font-size-small;
+	  line-height: @line-height-small;
+	  margin: 5px 0 0;
+  }
+  .radio, .checkbox {
+	  & + [class^="text-"] {
+	  	margin-top: 2px;
+	  }
+  }
+}
+
+// Form control unit
+.input-unit {
+	display: inline-block;
+	vertical-align: middle;
+	margin: (@padding-v + 1) 2px 0 0;
+	
+	.form-control + & {
+		margin-right: 0;
+		margin-left: 2px;
+	}
+}
+
+// Common form controls
+//
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+//
+// select
+// textarea
+// input[type="text"]
+// input[type="password"]
+// input[type="datetime"]
+// input[type="datetime-local"]
+// input[type="date"]
+// input[type="month"]
+// input[type="time"]
+// input[type="week"]
+// input[type="number"]
+// input[type="email"]
+// input[type="url"]
+// input[type="search"]
+// input[type="tel"]
+// input[type="color"]
+
+.form-control {
+	display: inline-block;  
+	vertical-align: top;
+  height: @input-height; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: @padding-v (@padding-h - 4);
+  font-size: @font-size;
+  line-height: @line-height;
+  color: @text-color;
+  background-color: @input-bg;
+  border: 1px solid @input-border;
+  border-radius: @input-border-radius;
+  .box-shadow(inset 0 1px 0 rgba(0,0,0,.075));
+  .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  .form-control-focus();
+
+  // Disabled and read-only inputs
+  // Note: HTML5 says that inputs under a fieldset > legend:first-child won't be
+  //   disabled if the fieldset is disabled. Due to implementation difficulty,
+  //   we don't honor that edge case; we style them as disabled anyway.
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    background-color: @input-bg-disabled;
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    //height: auto;
+    resize: none;
+    word-wrap: break-word;
+		vertical-align: top;
+  }
+}
+
+// Form control widths
+// Fixed width form controls
+.fc-xxs { width: 60px; } // 4em
+.fc-xs { width: 100px; } // 7em
+.fc-sm { width: 160px; } // 11em
+.fc-md { width: 240px; } // 17em
+.fc-lg { width: 380px; } // 27em
+.fc-xl { width: 560px; } // 40em
+
+@media (max-width: 640px) {
+	.fc-xl { width: 100%; }
+}
+
+/*.fc-xxs { 
+	+ .fc-md { width: 176px; } 
+	+ .fc-lg { width: 316px; } 
+	+ .fc-xl { width: 496px; }
+}
+
+.fc-xs { 
+	+ .fc-md { width: 136px; } 
+	+ .fc-lg { width: 276px; } 
+	+ .fc-xl { width: 456px; }
+}*/
+
+// Fluid width form controls
+.form-fluid [class^="form-control"], 
+.fc-fluid {
+	width: 100%;
+}
+
+
+// Checkboxes and radios
+.checkbox, 
+.radio {
+	margin-bottom: 0; // Reset label margin
+	font-weight: 400;
+	cursor: pointer;
+	
+	& + & {
+		margin-left: 10px;
+	}
+	& + br + & {
+		margin-top: 4px;
+	}
+}
+
+// Form control states
+
+// Warning
+.has-warning {
+  .form-control-validation(@state-warning-text; @state-warning-text; @state-warning-bg);
+}
+// Error
+.has-error {
+  .form-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
+}
+// Success
+.has-success {
+  .form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
+}
+
+
+// Form layouts
+
+// Form groups
+.form-group {
+	min-height: @input-height;
+  padding: 7px 0;
+  &.active {
+	  background-color: @bg-light;
+	  .transition(background-color @transition-duration;);
+  }
+}
+
+// Static form control 
+.form-control-static {
+  margin-bottom: 0; // Remove default margin from `p`
+}
+
+
+// Horizontal forms 
+.form-horizontal {
+	.form-group {
+		.make-row();
+	}
+}
+@media (min-width: @screen-sm) {
+	.form-horizontal .form-group {
+		label[class^="col-s"] {
+	  	padding-top: @padding-v + 1;
+	    //text-align: right; 
+	    > .help-block {
+				margin: -2px 0 -14px;
+			}
+	  }
+	  label[class^="col-s"] + [class^="col-s"] {
+			input[type="file"],
+			.checkbox, 
+			.radio, 
+			.form-control-static {
+		  	margin-top: @padding-v;
+		  }
+		}
+	}
+}
+@media (min-width: @screen-md) {
+	.form-horizontal .form-group {
+		label[class^="col-"] {
+	  	padding-top: @padding-v + 1;
+	    //text-align: right; 
+	    > .help-block {
+				margin: -2px 0 -14px;
+			}
+	  }
+	  label[class^="col-"] + [class^="col-"] {
+			input[type="file"], 
+			.checkbox, 
+			.radio, 
+			.form-control-static  {
+		  	margin-top: @padding-v;
+		  }
+		}
+	}
+}
+
+// Vertical form 
+.form-vertical {
+	.form-group {
+		 label {
+			 display: block;
+		 }
+		 .radio, .checkbox {
+			 display: inline-block;
+		 }
+	}
+}
+
+
+// Inline form 
+.form-inline {
+	.form-group {
+		padding: 0;
+		display: inline-block;
+		vertical-align: top;
+		
+		input[type="file"], 
+		.checkbox, 
+		.radio {
+		  margin-top: @padding-v;
+		  padding: 0 5px;
+		}
+	}
+}

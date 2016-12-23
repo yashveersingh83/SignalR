@@ -1,0 +1,70 @@
+//
+// Utility classes
+// --------------------------------------------------
+
+
+// Floats
+// -------------------------
+
+.clearfix {
+  .clearfix();
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.pull-right-margin {
+  float: right;
+  margin-left: (@line-height-computed / 2);
+  //margin-bottom: (@line-height-computed / 4);
+}
+.pull-left-margin {
+  float: left;
+  margin-right: (@line-height-computed / 2);
+  //margin-bottom: (@line-height-computed / 4);
+}
+
+
+
+// Toggling content
+// -------------------------
+
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.visible {
+  visibility: visible;
+}
+.text-hide {
+  .hide-text();
+}
+
+
+// For Affix plugin
+// -------------------------
+
+.affix {
+  position: fixed;
+}
+
+
+// Responsive
+// ----------------
+.responsive {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+	margin-bottom: @line-height-computed;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

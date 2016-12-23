@@ -1,0 +1,63 @@
+//
+// Sidebar navigation
+// --------------------------------------------------
+
+.sidenav {
+  padding: 10px 0;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  background-color: lighten(@blue-soft, 33.5%);
+  border-radius: @border-radius;
+}
+.nav-sidenav {
+	li {
+		a {
+	  	color: @text-color;
+	  	border-right: 1px solid transparent;
+	  	padding: 5px 20px;
+	  	
+	  	&:hover, 
+	  	&:focus {
+		  	text-decoration: none;
+			  background-color: lighten(@blue-soft, 29.5%);
+			  border-right-color: @blue;
+	  	}
+		}
+		&.active {
+			> a {
+				font-weight: 600;
+				color: @blue;
+				background-color: transparent;
+				border-right-color: @blue;
+			}
+		}
+	}
+	> li > a {
+		font-weight: 600;
+	}
+	.nav {
+		display: none;
+	  //margin-bottom: 8px;
+	  li > a {
+		  padding: 4px 20px;
+		  padding-left: 35px;
+		  font-size: 13px;
+		}
+		li li > a {
+		  padding-left: 50px;
+		}
+		li li li > a {
+		  padding-left: 65px;
+		  font-size: 12px;
+		}
+		li li li li > a {
+		  padding-left: 80px;
+		}
+	}
+	.active > .nav {
+		display: block;
+	}
+}
+.nav-sidenav-show-children,
+.nav-sidenav-show-children .nav {
+	display: block;
+}

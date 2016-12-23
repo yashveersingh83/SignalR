@@ -1,0 +1,268 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+table {
+  max-width: 100%;
+  background-color: #fff;
+}
+th {
+  text-align: left;
+}
+
+
+// Basic table setup
+// -----------------
+
+.table {
+  width: 100%;
+  margin-bottom: @line-height-computed;
+  caption {
+  	font-size: 18px;
+	  font-weight: 600;
+	  border-bottom: 1px solid @table-border;
+		padding-bottom: @table-padding;
+		text-align: left;
+		color: @gray-dark-soft;
+  }
+  &.table-small caption {
+	  font-size: 16px;
+  }
+  // Cells
+  thead,
+  tbody,
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        line-height: @line-height;
+        vertical-align: top;
+        padding: @table-padding;
+        border-bottom: 1px solid @table-border;
+      }
+    }
+  }
+  tbody {
+    > tr {
+      > th,
+      > td {
+      	border-color: @table-border-light;
+      }
+    }
+  }
+  // Bottom align for column headings
+  thead > tr > th {
+    vertical-align: bottom;
+    //border-bottom: 2px solid @table-border;
+  }
+  thead > tr:last-child > th {
+    border-bottom: 2px solid @table-border;
+  }
+  // Remove top border from thead by default
+  /*caption + thead,
+  colgroup + thead,
+  thead:first-child {
+    tr:first-child {
+      th, td {
+        border-top: 0;
+      }
+    }
+  }*/
+  // Account for multiple tbody instances
+  tbody + tbody {
+    border-top: 2px solid @table-border-light;
+  }
+}
+
+// Striped
+// ----------------
+
+.table-striped {
+	border: 1px solid @table-border;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-padding;
+        border-bottom: 0;
+        border-left: 1px solid @table-border;
+        &:first-child {
+	         border-left: 0;
+        }
+      }
+    }
+  }
+  > tbody {
+    > tr {
+      > th,
+      > td {
+        border-color: @table-border-light;
+      }
+    }
+  }
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-top: 1px solid @border-color-light;
+      }
+    }
+  }
+  > tbody {
+    > tr:nth-child(odd) {
+      > td,
+      > th {
+        background-color: @table-bg;
+      }
+    }
+  }
+}
+
+
+// Grid
+// ----------------
+
+.table-grid {
+  border: 1px solid @table-border;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-padding;
+        border: 1px solid @table-border;
+      }
+    }
+  }
+  > thead {
+	  > tr {
+		  > th, 
+		  > td {
+			  background-color: @table-bg;
+			  border-bottom-width: 2px;
+		  }
+	  }
+  }
+  > tbody {
+    > tr {
+      > th,
+      > td {
+        border-color: @table-border-light;
+        
+        &:first-child {
+	        border-left-color: @table-border;
+        }
+        &:last-child {
+	        border-right-color: @table-border;
+        }
+      }
+    }
+  }
+}
+
+
+// Hover
+// ------------
+
+// Placed here since it has to come after the potential zebra striping
+.table-hover {
+  > tbody {
+    > tr:hover {
+      > td,
+      > th {
+        background-color: @table-bg;
+      }
+      .invisible {
+       	visibility: visible;
+      }
+    }
+  }
+}
+.table-striped.table-hover {
+	> tbody {
+    > tr:hover {
+      > td,
+      > th {
+        background-color: @table-bg-dark;
+      }
+    }
+  }
+}
+// Show invisible elements on touch devices
+.touch .table-hover > tbody > tr .invisible {
+	visibility: visible !important;
+}
+
+// Small
+// -------------------------------
+
+.table-small {
+  thead,
+  tbody,
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        font-size: 13px;
+      }
+    }
+  }
+}
+  
+
+// Condensed
+// -------------------------------
+
+.table-condensed {
+  thead,
+  tbody,
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-padding-condensed;
+      }
+    }
+  }
+}
+
+// Table row link
+// -------------------------------
+
+.table-row-link {
+  tbody > tr:hover {
+	  cursor: pointer;
+  }
+}
+
+
+// Table cell sizing
+// -----------------
+
+// Reset default table behavior
+table col[class^="col-"] {
+  float: none;
+  display: table-column;
+}
+table {
+  td,
+  th {
+    &[class^="col-"] {
+      float: none;
+      display: table-cell;
+      padding-bottom: 0;
+    }
+  }
+}
+
+// Table backgrounds
+// -----------------
+.table-row-variant(active; @table-bg-active);
+.table-row-variant(info; @alert-info-bg);
+.table-row-variant(success; @alert-success-bg);
+.table-row-variant(danger; @alert-danger-bg);
+.table-row-variant(warning; @alert-warning-bg);
